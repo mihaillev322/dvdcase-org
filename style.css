@@ -1,0 +1,468 @@
+/* ========================================
+   CSS Variables – PolyGrid Slate Palette
+   ======================================== */
+:root {
+  --color-primary: #1E3A8A;
+  --color-secondary: #0F766E;
+  --color-accent: #F97316;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #0B1220;
+  --color-muted: #475569;
+  --color-border: #CBD5E1;
+  --radius-1: 2px;
+  --shadow-1: 0 1px 3px rgba(11, 18, 32, 0.08);
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --transition-speed: 0.2s;
+}
+
+/* ========================================
+   Reset and Base Styles
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Typography – Swiss Style
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-secondary);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+dl {
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Layout – Mobile-First Grid
+   ======================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-1);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-2);
+  }
+}
+
+/* ========================================
+   Header and Navigation
+   ======================================== */
+header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-1) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-1);
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--transition-speed) ease;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+main {
+  padding: var(--space-2) 0;
+  min-height: 60vh;
+}
+
+article {
+  background-color: var(--color-surface);
+  padding: var(--space-2);
+  border-radius: var(--radius-1);
+  box-shadow: var(--shadow-1);
+}
+
+@media (min-width: 768px) {
+  article {
+    padding: 3rem;
+  }
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Breadcrumbs
+   ======================================== */
+.breadcrumbs {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ========================================
+   Aside (Callout Box)
+   ======================================== */
+aside {
+  background-color: var(--color-bg);
+  border-left: 4px solid var(--color-secondary);
+  padding: var(--space-1);
+  margin: 1.5rem 0;
+  border-radius: var(--radius-1);
+}
+
+aside h3 {
+  margin-top: 0;
+  font-size: 1.125rem;
+}
+
+/* ========================================
+   Blockquote (Accent Callout)
+   ======================================== */
+blockquote {
+  background-color: #FFF7ED;
+  border-left: 4px solid var(--color-accent);
+  padding: var(--space-1);
+  margin: 1.5rem 0;
+  border-radius: var(--radius-1);
+  font-style: normal;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Tables – Responsive with Sticky Header
+   ======================================== */
+.table-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  font-size: 0.9375rem;
+}
+
+caption {
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+thead {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+@media (min-width: 1024px) {
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+tbody tr:hover {
+  background-color: var(--color-bg);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   Details/Summary Accordion
+   ======================================== */
+details {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  margin-bottom: 1rem;
+  padding: 0;
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+details:hover {
+  box-shadow: var(--shadow-1);
+}
+
+details[open] {
+  border-color: var(--color-primary);
+}
+
+summary {
+  font-weight: 600;
+  padding: 1rem;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  color: var(--color-primary);
+  transition: background-color var(--transition-speed) ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "▸ ";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+summary:hover {
+  background-color: var(--color-bg);
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+details p {
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2) 0;
+  margin-top: var(--space-2);
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+  article {
+    padding: 4rem;
+  }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   Focus Styles for Accessibility
+   ======================================== */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
